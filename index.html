@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Επωνυμία Επιχείρησης – Επίσημος Ιστότοπος</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <meta name="description" content="Επίσημος ιστότοπος της επιχείρησης. Υπηρεσίες, προϊόντα, στοιχεία επικοινωνίας και δήλωση προσβασιμότητας.">
   <!-- Βασικά: καθαρή τυπογραφία, υψηλή αντίθεση, ευδιάκριτη εστίαση, υποστήριξη πληκτρολογίου -->
   <style>
@@ -30,7 +33,7 @@
     }
     }
     html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;  background: var(--bg); color: var(--text); line-height: 1.6; }
     a { color: var(--brand); }
     a:hover { color: var(--brand-contrast); }
     /* Skip link */
@@ -47,7 +50,10 @@
     nav a[aria-current="page"], nav a:focus, nav a:hover { background: var(--card); outline: none; }
 
     /* Hero */
-    .hero { background: linear-gradient(180deg, var(--card), transparent); border-top: 6px solid var(--brand); }
+    .hero { position: relative; border-top: 6px solid var(--brand); background: url('education-bg.jpg') no-repeat center/cover; color: var(--text); }
+    .hero::after { content: ""; position: absolute; inset: 0; background: rgba(255,255,255,0.65); }
+    .hero-inner { position: relative; z-index: 1; }
+    .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .06; background-repeat: no-repeat; background-position: left 5% center; background-size: min(70%, 560px); background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 37 28'><rect width='37' height='28' fill='%23C8102E'/><rect x='12' width='5' height='28' fill='white'/><rect y='12' width='37' height='5' fill='white'/></svg>"); }
     .hero-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center; }
     .hero h1 { font-size: clamp(1.6rem, 2.5vw + 1rem, 2.6rem); margin: 0 0 .5rem; }
     .hero p { margin: 0 0 1rem; color: var(--muted); }
@@ -79,10 +85,10 @@
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
       /* Funding banner styling */
     .funding-banner { background: #fff; border-bottom: 1px solid #e5e5e5; }
-    .funding-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem; align-items: start; }
+    .funding-inner { display: grid; grid-template-columns: 1.1fr 1.3fr; gap: 1.5rem; align-items: center; }
     .funding-text p { margin: 0; }
     .funding-media { justify-self: end; }
-    .funding-media img { max-height: 160px; width: auto; border-radius: .5rem; border: 2px solid var(--brand); box-shadow: 0 1px 6px rgba(0,0,0,.06); }
+    .funding-media img { max-height: 480px; width: auto; border-radius: .75rem; border: 2px solid var(--brand); box-shadow: 0 10px 28px rgba(0,0,0,.12); }
     .funding-actions { display: grid; gap: .5rem; justify-items: start; }
     .btn { display: inline-block; background: var(--brand); color: #fff; padding: .6rem .9rem; border-radius: .6rem; text-decoration: none; font-weight: 600; }
     .btn:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
@@ -102,6 +108,12 @@
     .btn:hover { transform: translateY(-1px); }
     .btn:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
     .pdf-embed { margin-top: .5rem; border: 1px solid #e5e5e5; border-radius: .5rem; overflow: hidden; }
+      /* Reveal animations (respect reduced-motion) */
+    .will-reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    @media (prefers-reduced-motion: reduce) {
+      .will-reveal { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -159,12 +171,13 @@
     </section>
     <section class="hero">
       <div class="container hero-inner">
-        <div>
-          <h1>Επαγγελματικές λύσεις με επίκεντρο την προσβασιμότητα</h1>
+        <div class="will-reveal">
+          <h1>Μαθήματα Δανέζικων &amp; Υποστήριξη Ενσωμάτωσης</h1>
+          <p><span class="flag-inline" aria-hidden="true" title="Denmark">🇩🇰</span> Εκμάθηση γλώσσας, κουλτούρας και υποστήριξη ζωής στη Δανία <span class="flag-inline" aria-hidden="true" title="Denmark">🇩🇰</span></p>
           <p>Παρέχουμε <strong>υψηλής ποιότητας</strong> υπηρεσίες με σεβασμό σε όλους τους χρήστες. Ο παρών ιστότοπος ακολουθεί τις οδηγίες <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.1 σε επίπεδο AA.</p>
           <a class="cta" href="#contact">Ζητήστε Προσφορά</a>
         </div>
-        <figure>
+        <figure class="will-reveal">
           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Font_Awesome_5_solid_universal-access.svg" alt="Εικονίδιο καθολικής προσβασιμότητας" />
           <figcaption class="hint">Η προσβασιμότητα είναι βασική προτεραιότητα.</figcaption>
         </figure>
@@ -176,13 +189,13 @@
       <div class="container">
         <h2 id="proposal-h2">Πρόταση – Αντικείμενο & Στόχοι</h2>
 
-        <article class="card" aria-labelledby="scope-h3">
+        <article class="card will-reveal" aria-labelledby="scope-h3">
           <h3 id="scope-h3">Αντικείμενο Επιχείρησης</h3>
           <p>Η επιχείρηση θα παρέχει υπηρεσίες διαδικτυακής διδασκαλίας της δανέζικης γλώσσας στα ελληνικά. Η νομική μορφή θα είναι <strong>Ατομική Επιχείρηση</strong> για ευελιξία, κατάλληλη για το αντικείμενο της ξενόγλωσσης διδασκαλίας.</p>
           <p>Στόχος είναι η παροχή υπηρεσιών σε ιδιώτες και επιχειρήσεις που επιθυμούν ιδιωτικά μαθήματα εκμάθησης δανέζικης γλώσσας για τους εργαζομένους τους.</p>
         </article>
 
-        <article class="card" aria-labelledby="activity-h3">
+        <article class="card will-reveal" aria-labelledby="activity-h3">
           <h3 id="activity-h3">Δραστηριότητα</h3>
           <ul>
             <li>Διαδικτυακή διδασκαλία της δανέζικης γλώσσας.</li>
@@ -191,7 +204,7 @@
           <p class="hint">Βασίζεται στην άριστη γνώση της δανέζικης γλώσσας και στη συνάφεια με τη δανέζικη κουλτούρα/σύστημα.</p>
         </article>
 
-        <article class="card" aria-labelledby="goal-h3">
+        <article class="card will-reveal" aria-labelledby="goal-h3">
           <h3 id="goal-h3">Σκοπός Επενδυτικού Σχεδίου</h3>
           <p>Ίδρυση βιώσιμης και κερδοφόρας επιχείρησης στον τομέα εκμάθησης ξένων γλωσσών, με στόχευση:</p>
           <ul>
@@ -203,12 +216,12 @@
           <p class="hint">Η δικαιούχος έχει ολοκληρώσει επιτυχώς το <em>Prøve i Dansk 3</em> και κατέχει δανέζικη υπηκοότητα.</p>
         </article>
 
-        <article class="card" aria-labelledby="holistic-h3">
+        <article class="card will-reveal" aria-labelledby="holistic-h3">
           <h3 id="holistic-h3">Ολιστική Υποστήριξη</h3>
           <p>Συμβουλευτική για Έλληνες που μεταναστεύουν στη Δανία: πρακτικά θέματα αλληλεπίδρασης με το δανέζικο κράτος και εξοικείωση με ήθη/έθιμα για ταχύτερη ενσωμάτωση.</p>
         </article>
 
-        <article class="card" aria-labelledby="services2-h3">
+        <article class="card will-reveal" aria-labelledby="services2-h3">
           <h3 id="services2-h3">Παραγόμενες Υπηρεσίες</h3>
           <ul>
             <li>Ιδιωτικά διαδικτυακά μαθήματα δανέζικης γλώσσας.</li>
@@ -216,7 +229,7 @@
           </ul>
         </article>
 
-        <article class="card" aria-labelledby="advantages-h3">
+        <article class="card will-reveal" aria-labelledby="advantages-h3">
           <h3 id="advantages-h3">Πλεονεκτήματα</h3>
           <ul>
             <li><strong>Σπάνιο αντικείμενο στα ελληνικά:</strong> Ελάχιστα (μονοψήφιος αριθμός) κέντρα εκμάθησης για ελληνόφωνους.</li>
@@ -232,15 +245,15 @@
       <div class="container">
         <h2 id="services-h2">Υπηρεσίες</h2>
         <div class="grid" role="list">
-          <article class="card" role="listitem">
+          <article class="card will-reveal" role="listitem">
             <h3>Διαδικτυακά Μαθήματα Δανέζικων</h3>
             <p>Ιδιωτικά online μαθήματα για όλα τα επίπεδα, με έμφαση στην προφορά και την πρακτική χρήση.</p>
           </article>
-          <article class="card" role="listitem">
+          <article class="card will-reveal" role="listitem">
             <h3>Υποστήριξη Ενσωμάτωσης</h3>
             <p>Καθοδήγηση για ζωή και εργασία στη Δανία: κουλτούρα, θεσμοί, καθημερινές διαδικασίες.</p>
           </article>
-          <article class="card" role="listitem">
+          <article class="card will-reveal" role="listitem">
             <h3>Μεταφράσεις</h3>
             <p>Μεταφράσεις βασικών εγγράφων Δανέζικα ↔ Ελληνικά για σπουδές, εργασία και καθημερινότητα.</p>
           </article>
@@ -335,6 +348,24 @@
       alert('Ευχαριστούμε! Το μήνυμα καταχωρήθηκε. (Ενσωματώνουμε αργότερα πραγματική αποστολή)');
       e.target.reset();
     });
+
+    // Reveal on scroll
+    (function(){
+      const els = Array.from(document.querySelectorAll('.will-reveal'));
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        els.forEach(el => el.classList.add('reveal'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    })();
   </script>
 </body>
 </html>
