@@ -41,8 +41,8 @@
     header { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid #ddd; z-index: 10; }
     .container { max-width: 1100px; margin: 0 auto; padding: 1rem; }
     .topbar { display: flex; align-items: center; gap: 1rem; justify-content: space-between; }
-    .brand { font-size: 1.25rem; font-weight: 700; letter-spacing: .2px; }
-    nav ul { display: flex; gap: .5rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+    .brand { font-size: 1.25rem; font-weight: 700; letter-spacing: .2px; display: flex; align-items: center; gap: .5rem; }
+    nav ul { display: flex; gap: .5rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; align-items: center; }
     nav a { text-decoration: none; padding: .5rem .75rem; border-radius: .5rem; }
     nav a[aria-current="page"], nav a:focus, nav a:hover { background: var(--card); outline: none; }
 
@@ -88,6 +88,20 @@
     .btn:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
     .pdf-embed { margin-top: .5rem; border: 1px solid #e5e5e5; border-radius: .5rem; overflow: hidden; }
 
+      /* Header underline accent */
+    header { border-bottom: 2px solid var(--brand); }
+    .flag svg { display: block; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.05); }
+    /* Funding banner styling */
+    .funding-banner { background: #fff; border-bottom: 1px solid #e5e5e5; }
+    .funding-inner { display: grid; grid-template-columns: 1fr 1.3fr; gap: 1.25rem; align-items: center; }
+    .funding-text p { margin: 0; }
+    .funding-media { justify-self: end; }
+    .funding-media img { max-height: 360px; width: auto; border-radius: .5rem; border: 2px solid var(--brand); box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+    .funding-actions { display: grid; gap: .5rem; justify-items: start; }
+    .btn { display: inline-block; background: var(--brand); color: #fff; padding: .6rem .9rem; border-radius: .6rem; text-decoration: none; font-weight: 600; transition: transform .06s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .pdf-embed { margin-top: .5rem; border: 1px solid #e5e5e5; border-radius: .5rem; overflow: hidden; }
   </style>
 </head>
 <body>
@@ -95,7 +109,16 @@
 
   <header role="banner">
     <div class="container topbar">
-      <div class="brand">Επωνυμία Επιχείρησης</div>
+      <div class="brand" aria-label="Επωνυμία Επιχείρησης">
+        <span class="flag" aria-hidden="true" title="Denmark">
+          <svg width="24" height="16" viewBox="0 0 37 28" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Σημαία Δανίας">
+            <rect width="37" height="28" fill="#C8102E"/>
+            <rect x="12" width="5" height="28" fill="#ffffff"/>
+            <rect y="12" width="37" height="5" fill="#ffffff"/>
+          </svg>
+        </span>
+        <span>Επωνυμία Επιχείρησης</span>
+      </div>
       <nav aria-label="Κύρια πλοήγηση">
         <ul>
           <li><a href="#services" aria-current="page">Υπηρεσίες</a></li>
@@ -103,6 +126,7 @@
           <li><a href="#contact">Επικοινωνία</a></li>
           <li><a href="#accessibility">Προσβασιμότητα</a></li>
           <li><a href="#proposal">Πρόταση</a></li>
+          <li><a href="#downloads">Downloads</a></li>
           <li><a href="#privacy">Απόρρητο</a></li>
         </ul>
       </nav>
@@ -124,15 +148,8 @@
             <img src="poster.jpg" alt="Αφίσα προγράμματος χρηματοδότησης ΔΥΠΑ (περίληψη περιεχομένου αφίσας)" onerror="this.style.display='none'" />
           </figure>
           <div class="funding-actions">
-            <a class="btn" href="poster-nee-30-59-final.pdf" target="_blank" rel="noopener" aria-label="Λήψη της επίσημης αφίσας σε PDF" title="PDF αρχείο, ~1 σελίδα, περίπου 2 MB">Λήψη αφίσας (PDF)</a>
             <p class="hint">Με τη συγχρηματοδότηση της Ευρωπαϊκής Ένωσης – ΕΚΤ+</p>
-            <details>
-              <summary>Προβολή της αφίσας (PDF) μέσα στη σελίδα</summary>
-              <div class="pdf-embed">
-                <object data="poster-nee-30-59-final.pdf" type="application/pdf" width="100%" height="600" aria-label="Ενσωματωμένη προβολή PDF αφίσας">
-                  <p>Δεν ήταν δυνατή η ενσωμάτωση. <a href="poster-nee-30-59-final.pdf" target="_blank" rel="noopener">Ανοίξτε την αφίσα σε νέα καρτέλα (PDF)</a>.</p>
-                </object>
-              </div>
+          </div>
             </details>
           </div>
             </details>
@@ -205,7 +222,7 @@
             <li><strong>Σπάνιο αντικείμενο στα ελληνικά:</strong> Ελάχιστα (μονοψήφιος αριθμός) κέντρα εκμάθησης για ελληνόφωνους.</li>
             <li><strong>Δίγλωσση δασκάλα (Ελληνικά &amp; Δανέζικα):</strong> Ορθή προφορά — ένα από τα δυσκολότερα σημεία της γλώσσας.</li>
             <li><strong>Ευελιξία προγραμματισμού:</strong> Μαθήματα μέσω Skype/Teams σε ώρες που εξυπηρετούν τους μαθητές.</li>
-            <li><strong>Ανταγωνιστικές τιμές &amp; ποιότητα:</strong> Σημαντικά ανταγωνιστικότερες σε σχέση με τυπικές τιμές 60–80 €/ώρα στη δανέζικη αγορά, και ανώτερη ποιότητα από γενικά <em>sprogskoler</em> που έχουν υποβαθμιστεί λόγω ζήτησης.</li>
+            
           </ul>
         </article>
       </div>
@@ -216,16 +233,16 @@
         <h2 id="services-h2">Υπηρεσίες</h2>
         <div class="grid" role="list">
           <article class="card" role="listitem">
-            <h3>Υπηρεσία Α</h3>
-            <p>Σύντομη περιγραφή της υπηρεσίας. Περιλαμβάνει οφέλη και ενδεικτική τιμολόγηση.</p>
+            <h3>Διαδικτυακά Μαθήματα Δανέζικων</h3>
+            <p>Ιδιωτικά online μαθήματα για όλα τα επίπεδα, με έμφαση στην προφορά και την πρακτική χρήση.</p>
           </article>
           <article class="card" role="listitem">
-            <h3>Υπηρεσία Β</h3>
-            <p>Σύντομη περιγραφή της υπηρεσίας. Περιλαμβάνει οφέλη και ενδεικτική τιμολόγηση.</p>
+            <h3>Υποστήριξη Ενσωμάτωσης</h3>
+            <p>Καθοδήγηση για ζωή και εργασία στη Δανία: κουλτούρα, θεσμοί, καθημερινές διαδικασίες.</p>
           </article>
           <article class="card" role="listitem">
-            <h3>Υπηρεσία Γ</h3>
-            <p>Σύντομη περιγραφή της υπηρεσίας. Περιλαμβάνει οφέλη και ενδεικτική τιμολόγηση.</p>
+            <h3>Μεταφράσεις</h3>
+            <p>Μεταφράσεις βασικών εγγράφων Δανέζικα ↔ Ελληνικά για σπουδές, εργασία και καθημερινότητα.</p>
           </article>
         </div>
       </div>
@@ -290,6 +307,13 @@
       <div class="container">
         <h2 id="privacy-h2">Απόρρητο & Cookies</h2>
         <p>Σεβόμαστε την ιδιωτικότητά σας. Συλλέγουμε μόνο τα απολύτως απαραίτητα δεδομένα για την επικοινωνία μαζί σας και δεν τα κοινοποιούμε σε τρίτους. Για περισσότερα στοιχεία σχετικά με τα δικαιώματά σας (GDPR) επικοινωνήστε μαζί μας.</p>
+      </div>
+    </section>
+      <section id="downloads" aria-labelledby="downloads-h2">
+      <div class="container">
+        <h2 id="downloads-h2">Downloads</h2>
+        <p class="hint">Επίσημα αρχεία και υλικό ενημέρωσης.</p>
+        <a class="btn" href="poster-nee-30-59-final.pdf" target="_blank" rel="noopener" title="PDF αρχείο, 1 σελίδα, ~2 MB">Αφίσα Χρηματοδότησης (PDF)</a>
       </div>
     </section>
   </main>
