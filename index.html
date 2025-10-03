@@ -9,11 +9,12 @@
   <style>
     :root {
       --bg: #ffffff;
-      --text: #0a0a0a;
-      --muted: #444;
-      --brand: #0b5fff; /* επαρκής αντίθεση σε λευκό */
-      --brand-contrast: #083db0;
-      --card: #f7f7f7;
+      --text: #111111;
+      --muted: #555555;
+      /* Δανέζικη παλέτα: άσπρο-κόκκινο */
+      --brand: #C8102E; /* Danish red */
+      --brand-contrast: #8E001A; /* darker for hover */
+      --card: #f5f6f7;
       --focus: #ffbf47; /* εμφανής ένδειξη εστίασης */
     }
     @media (prefers-color-scheme: dark) {
@@ -21,11 +22,12 @@
         --bg: #0e0e11;
         --text: #f1f1f3;
         --muted: #c8c8ce;
-        --brand: #6aa9ff;
-        --brand-contrast: #b4d0ff;
+        --brand: #FF5A73; /* lighter red for dark mode */
+        --brand-contrast: #FFC4CD;
         --card: #18181d;
         --focus: #ffd24d;
       }
+    }
     }
     html { scroll-behavior: smooth; }
     body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
@@ -45,7 +47,7 @@
     nav a[aria-current="page"], nav a:focus, nav a:hover { background: var(--card); outline: none; }
 
     /* Hero */
-    .hero { background: linear-gradient(180deg, var(--card), transparent); }
+    .hero { background: linear-gradient(180deg, var(--card), transparent); border-top: 6px solid var(--brand); }
     .hero-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center; }
     .hero h1 { font-size: clamp(1.6rem, 2.5vw + 1rem, 2.6rem); margin: 0 0 .5rem; }
     .hero p { margin: 0 0 1rem; color: var(--muted); }
@@ -75,6 +77,17 @@
 
     /* Utilities */
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+      /* Funding banner styling */
+    .funding-banner { background: #fff; border-bottom: 1px solid #e5e5e5; }
+    .funding-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem; align-items: start; }
+    .funding-text p { margin: 0; }
+    .funding-media { justify-self: end; }
+    .funding-media img { max-height: 160px; width: auto; border-radius: .5rem; border: 2px solid var(--brand); box-shadow: 0 1px 6px rgba(0,0,0,.06); }
+    .funding-actions { display: grid; gap: .5rem; justify-items: start; }
+    .btn { display: inline-block; background: var(--brand); color: #fff; padding: .6rem .9rem; border-radius: .6rem; text-decoration: none; font-weight: 600; }
+    .btn:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .pdf-embed { margin-top: .5rem; border: 1px solid #e5e5e5; border-radius: .5rem; overflow: hidden; }
+
   </style>
 </head>
 <body>
@@ -89,6 +102,7 @@
           <li><a href="#about">Σχετικά</a></li>
           <li><a href="#contact">Επικοινωνία</a></li>
           <li><a href="#accessibility">Προσβασιμότητα</a></li>
+          <li><a href="#proposal">Πρόταση</a></li>
           <li><a href="#privacy">Απόρρητο</a></li>
         </ul>
       </nav>
@@ -96,6 +110,36 @@
   </header>
 
   <main id="main" role="main">
+    <!-- Εμφανές banner Χρηματοδότησης ΔΥΠΑ -->
+    <section id="funding" aria-labelledby="funding-h2" class="funding-banner" role="region">
+      <div class="container">
+        <h2 id="funding-h2" class="sr-only">Χρηματοδότηση Προγράμματος</h2>
+        <div class="funding-inner">
+          <div class="funding-text">
+            <p><strong>Το έργο υλοποιείται με χρηματοδότηση από τη ΔΥΠΑ</strong></p>
+            <p class="hint">Η ενημέρωση είναι μόνιμα ορατή σύμφωνα με τις απαιτήσεις προβολής χρηματοδότησης.</p>
+          </div>
+          <figure class="funding-media">
+            <!-- Προσπαθούμε να δείξουμε εικόνα αν υπάρχει, αλλιώς θα φαίνεται μόνο το PDF μέσω του κουμπιού -->
+            <img src="poster.jpg" alt="Αφίσα προγράμματος χρηματοδότησης ΔΥΠΑ (περίληψη περιεχομένου αφίσας)" onerror="this.style.display='none'" />
+          </figure>
+          <div class="funding-actions">
+            <a class="btn" href="poster-nee-30-59-final.pdf" target="_blank" rel="noopener" aria-label="Λήψη της επίσημης αφίσας σε PDF" title="PDF αρχείο, ~1 σελίδα, περίπου 2 MB">Λήψη αφίσας (PDF)</a>
+            <p class="hint">Με τη συγχρηματοδότηση της Ευρωπαϊκής Ένωσης – ΕΚΤ+</p>
+            <details>
+              <summary>Προβολή της αφίσας (PDF) μέσα στη σελίδα</summary>
+              <div class="pdf-embed">
+                <object data="poster-nee-30-59-final.pdf" type="application/pdf" width="100%" height="600" aria-label="Ενσωματωμένη προβολή PDF αφίσας">
+                  <p>Δεν ήταν δυνατή η ενσωμάτωση. <a href="poster-nee-30-59-final.pdf" target="_blank" rel="noopener">Ανοίξτε την αφίσα σε νέα καρτέλα (PDF)</a>.</p>
+                </object>
+              </div>
+            </details>
+          </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="hero">
       <div class="container hero-inner">
         <div>
@@ -107,6 +151,63 @@
           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Font_Awesome_5_solid_universal-access.svg" alt="Εικονίδιο καθολικής προσβασιμότητας" />
           <figcaption class="hint">Η προσβασιμότητα είναι βασική προτεραιότητα.</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <!-- Ενότητα Πρότασης/Προγράμματος -->
+    <section id="proposal" aria-labelledby="proposal-h2" role="region">
+      <div class="container">
+        <h2 id="proposal-h2">Πρόταση – Αντικείμενο & Στόχοι</h2>
+
+        <article class="card" aria-labelledby="scope-h3">
+          <h3 id="scope-h3">Αντικείμενο Επιχείρησης</h3>
+          <p>Η επιχείρηση θα παρέχει υπηρεσίες διαδικτυακής διδασκαλίας της δανέζικης γλώσσας στα ελληνικά. Η νομική μορφή θα είναι <strong>Ατομική Επιχείρηση</strong> για ευελιξία, κατάλληλη για το αντικείμενο της ξενόγλωσσης διδασκαλίας.</p>
+          <p>Στόχος είναι η παροχή υπηρεσιών σε ιδιώτες και επιχειρήσεις που επιθυμούν ιδιωτικά μαθήματα εκμάθησης δανέζικης γλώσσας για τους εργαζομένους τους.</p>
+        </article>
+
+        <article class="card" aria-labelledby="activity-h3">
+          <h3 id="activity-h3">Δραστηριότητα</h3>
+          <ul>
+            <li>Διαδικτυακή διδασκαλία της δανέζικης γλώσσας.</li>
+            <li>Εξοικείωση με τα ήθη, έθιμα και την ιστορία της Δανίας.</li>
+          </ul>
+          <p class="hint">Βασίζεται στην άριστη γνώση της δανέζικης γλώσσας και στη συνάφεια με τη δανέζικη κουλτούρα/σύστημα.</p>
+        </article>
+
+        <article class="card" aria-labelledby="goal-h3">
+          <h3 id="goal-h3">Σκοπός Επενδυτικού Σχεδίου</h3>
+          <p>Ίδρυση βιώσιμης και κερδοφόρας επιχείρησης στον τομέα εκμάθησης ξένων γλωσσών, με στόχευση:</p>
+          <ul>
+            <li>Έλληνες που σκοπεύουν να μεταναστεύσουν στη Δανία.</li>
+            <li>Έλληνες που ήδη διαμένουν στη Δανία.</li>
+            <li>Γλωσσομαθείς που επιθυμούν να μάθουν δανέζικα.</li>
+          </ul>
+          <p>Καλύπτονται όλα τα επίπεδα γνώσης και υποστηρίζεται προετοιμασία για τα πιστοποιητικά: <em>Prøve i Dansk 1</em>, <em>Prøve i Dansk 2</em>, <em>Prøve i Dansk 3</em>, καθώς και το τεστ ιθαγένειας <em>Indfødsretsprøve</em>.</p>
+          <p class="hint">Η δικαιούχος έχει ολοκληρώσει επιτυχώς το <em>Prøve i Dansk 3</em> και κατέχει δανέζικη υπηκοότητα.</p>
+        </article>
+
+        <article class="card" aria-labelledby="holistic-h3">
+          <h3 id="holistic-h3">Ολιστική Υποστήριξη</h3>
+          <p>Συμβουλευτική για Έλληνες που μεταναστεύουν στη Δανία: πρακτικά θέματα αλληλεπίδρασης με το δανέζικο κράτος και εξοικείωση με ήθη/έθιμα για ταχύτερη ενσωμάτωση.</p>
+        </article>
+
+        <article class="card" aria-labelledby="services2-h3">
+          <h3 id="services2-h3">Παραγόμενες Υπηρεσίες</h3>
+          <ul>
+            <li>Ιδιωτικά διαδικτυακά μαθήματα δανέζικης γλώσσας.</li>
+            <li>Μαθήματα ιστορίας και πολιτισμού της Δανίας για τεστ ιθαγένειας ή καλύτερη ενσωμάτωση.</li>
+          </ul>
+        </article>
+
+        <article class="card" aria-labelledby="advantages-h3">
+          <h3 id="advantages-h3">Πλεονεκτήματα</h3>
+          <ul>
+            <li><strong>Σπάνιο αντικείμενο στα ελληνικά:</strong> Ελάχιστα (μονοψήφιος αριθμός) κέντρα εκμάθησης για ελληνόφωνους.</li>
+            <li><strong>Δίγλωσση δασκάλα (Ελληνικά &amp; Δανέζικα):</strong> Ορθή προφορά — ένα από τα δυσκολότερα σημεία της γλώσσας.</li>
+            <li><strong>Ευελιξία προγραμματισμού:</strong> Μαθήματα μέσω Skype/Teams σε ώρες που εξυπηρετούν τους μαθητές.</li>
+            <li><strong>Ανταγωνιστικές τιμές &amp; ποιότητα:</strong> Σημαντικά ανταγωνιστικότερες σε σχέση με τυπικές τιμές 60–80 €/ώρα στη δανέζικη αγορά, και ανώτερη ποιότητα από γενικά <em>sprogskoler</em> που έχουν υποβαθμιστεί λόγω ζήτησης.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
