@@ -1,13 +1,62 @@
+Η συνομιλία άνοιξε. 7 μηνύματα. 1 μη αναγνωσμένο μήνυμα.
+
+Μετάβαση απευθείας στο περιεχόμενο
+Χρήση του Gmail με αναγνώστες οθόνης
+1 από 16.505
+files
+Εισερχόμενα
+
+Vivian Ksinou
+ΣυνημμέναΠαρ 3 Οκτ, 4:14 μ.μ. (πριν από 23 ώρες)
+ 
+4
+
+Nikolopoulos Aristeidis
+Συνημμένα3:14 μ.μ. (πριν από 31 λεπτά)
+Checklist προσβασιμότητας & λειτουργικότητας site - Δομή και Σημασιολογία - Χρήση σωστής HTML5 δομής (header, nav, main, section, footer). - Υπάρχει skip link (
+
+Nikolopoulos Aristeidis <a.nikolopoulos@sunlight-group.com>
+Συνημμένα
+3:45 μ.μ. (πριν από 0 λεπτά)
+προς εγώ
+
+ 
+
+ 
+
+From: Nikolopoulos Aristeidis
+Sent: Saturday, October 4, 2025 3:43 PM
+To: 'Nikolopoulos Aristeidis' <a.nikolopoulos@sunlight.gr>
+Subject: RE: files
+
+ 
+
+ 
+
+ 
+
+From: Nikolopoulos Aristeidis <a.nikolopoulos@sunlight.gr>
+Sent: Saturday, October 4, 2025 3:14 PM
+To: Vivian Ksinou <vivianksinou@gmail.com>
+Subject: RE: files
+
+ 
+
+Checklist προσβασιμότητας & λειτουργικότητας site
+
+ Ένα συνημμένο
+  •  Σαρώθηκε από το Gmail
 <!doctype html>
 <html lang="el">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Επωνυμία Επιχείρησης – Επίσημος Ιστότοπος</title>
-  <meta name="description" content="Επίσημος ιστότοπος για διαδικτυακά μαθήματα Δανέζικων, υποστήριξη ενσωμάτωσης και μεταφράσεις. Περιλαμβάνει δήλωση προσβασιμότητας και GDPR.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Επίσημος ιστότοπος της επιχείρησης. Υπηρεσίες, προϊόντα, στοιχεία επικοινωνίας και δήλωση προσβασιμότητας.">
+  <!-- Βασικά: καθαρή τυπογραφία, υψηλή αντίθεση, ευδιάκριτη εστίαση, υποστήριξη πληκτρολογίου -->
   <style>
     :root {
       --bg: #ffffff;
@@ -17,7 +66,7 @@
       --brand: #C8102E; /* Danish red */
       --brand-contrast: #8E001A; /* darker for hover */
       --card: #f5f6f7;
-      --focus: #ffbf47; /* έντονη ένδειξη εστίασης */
+      --focus: #ffbf47; /* εμφανής ένδειξη εστίασης */
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -30,35 +79,34 @@
         --focus: #ffd24d;
       }
     }
-
+    }
     html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;  background: var(--bg); color: var(--text); line-height: 1.6; }
     a { color: var(--brand); }
     a:hover { color: var(--brand-contrast); }
-
     /* Skip link */
     .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
     .skip-link:focus { left: 1rem; top: 1rem; width: auto; height: auto; background: var(--focus); color: #000; padding: .5rem .75rem; border-radius: .5rem; z-index: 1000; }
 
     /* Header / Nav */
-    header { position: sticky; top: 0; background: var(--bg); border-bottom: 2px solid var(--brand); z-index: 10; }
+    header { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid #ddd; z-index: 10; }
     .container { max-width: 1100px; margin: 0 auto; padding: 1rem; }
     .topbar { display: flex; align-items: center; gap: 1rem; justify-content: space-between; }
     .brand { font-size: 1.25rem; font-weight: 700; letter-spacing: .2px; display: flex; align-items: center; gap: .5rem; }
     nav ul { display: flex; gap: .5rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; align-items: center; }
     nav a { text-decoration: none; padding: .5rem .75rem; border-radius: .5rem; }
     nav a[aria-current="page"], nav a:focus, nav a:hover { background: var(--card); outline: none; }
-    .flag svg { display: block; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.05); }
 
     /* Hero */
     .hero { position: relative; border-top: 6px solid var(--brand); background: url('education-bg.jpg') no-repeat center/cover; color: var(--text); }
     .hero::after { content: ""; position: absolute; inset: 0; background: rgba(255,255,255,0.65); }
-    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center; }
+    .hero-inner { position: relative; z-index: 1; }
+    .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .06; background-repeat: no-repeat; background-position: left 5% center; background-size: min(70%, 560px); background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 37 28'><rect width='37' height='28' fill='%23C8102E'/><rect x='12' width='5' height='28' fill='white'/><rect y='12' width='37' height='5' fill='white'/></svg>"); }
+    .hero-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; align-items: center; }
     .hero h1 { font-size: clamp(1.6rem, 2.5vw + 1rem, 2.6rem); margin: 0 0 .5rem; }
     .hero p { margin: 0 0 1rem; color: var(--muted); }
     .cta { display: inline-block; background: var(--brand); color: #fff; padding: .75rem 1rem; border-radius: .75rem; text-decoration: none; font-weight: 600; }
     .cta:focus { outline: 3px solid var(--focus); outline-offset: 3px; }
-    .flag-inline { margin: 0 .15rem; }
 
     /* Sections */
     section { padding: 3rem 0; border-top: 1px solid #e9e9e9; }
@@ -68,42 +116,60 @@
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
     .card { background: var(--card); padding: 1rem; border-radius: .75rem; }
 
-    /* Funding banner */
-    .funding-banner { background: #fff; border-bottom: 1px solid #e5e5e5; }
-    .funding-inner { display: grid; grid-template-columns: 1.1fr 1.3fr; gap: 1.5rem; align-items: center; }
-    .funding-text p { margin: 0; }
-    .funding-media { justify-self: end; }
-    .funding-media img { max-height: 720px; width: auto; border-radius: .75rem; border: 2px solid var(--brand); box-shadow: 0 10px 28px rgba(0,0,0,.12); }
-    .funding-actions { display: grid; gap: .5rem; justify-items: start; }
-    .btn { display: inline-block; background: var(--brand); color: #fff; padding: .6rem .9rem; border-radius: .6rem; text-decoration: none; font-weight: 600; transition: transform .06s ease; }
-    .btn:hover { transform: translateY(-1px); }
-    .btn:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
-    .pdf-embed { margin-top: .5rem; border: 1px solid #e5e5e5; border-radius: .5rem; overflow: hidden; }
+    /* Footer */
+    footer { border-top: 1px solid #e9e9e9; padding: 2rem 0; }
 
-    /* Forms / Embeds */
-    .gform-embed iframe { width: 100%; border: 0; }
+    /* Forms */
+    form { display: grid; gap: .75rem; max-width: 640px; }
+    label { font-weight: 600; }
+    input, textarea, select, button { font: inherit; padding: .6rem .7rem; border-radius: .5rem; border: 1px solid #ccc; background: var(--bg); color: var(--text); }
+    input:focus, textarea:focus, select:focus, button:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .hint { font-size: .9rem; color: var(--muted); }
 
     /* Media */
     img { max-width: 100%; height: auto; }
 
     /* Utilities */
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+      /* Funding banner styling */
+    .funding-banner { background: #fff; border-bottom: 1px solid #e5e5e5; }
+    .funding-inner { display: grid; grid-template-columns: 1.1fr 1.3fr; gap: 1.5rem; align-items: center; }
+    .funding-text p { margin: 0; }
+    .funding-media { justify-self: end; }
+    .funding-media img { max-height: 720px; width: auto; border-radius: .75rem; border: 2px solid var(--brand); box-shadow: 0 10px 28px rgba(0,0,0,.12); }
+    .funding-actions { display: grid; gap: .5rem; justify-items: start; }
+    .btn { display: inline-block; background: var(--brand); color: #fff; padding: .6rem .9rem; border-radius: .6rem; text-decoration: none; font-weight: 600; }
+    .btn:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .pdf-embed { margin-top: .5rem; border: 1px solid #e5e5e5; border-radius: .5rem; overflow: hidden; }
 
-    /* εικόνα ενότητας */
-    .section-image { margin: 0 0 1rem; }
-    .section-image img { width: 100%; height: auto; display: block; border-radius: .75rem; box-shadow: 0 8px 24px rgba(0,0,0,.12); }
-
-    /* Reveal animations (respect reduced-motion) */
+      /* Header underline accent */
+    header { border-bottom: 2px solid var(--brand); }
+    .flag svg { display: block; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.05); }
+    /* Funding banner styling */
+    .funding-banner { background: #fff; border-bottom: 1px solid #e5e5e5; }
+    .funding-inner { display: grid; grid-template-columns: 1fr 1.3fr; gap: 1.25rem; align-items: center; }
+    .funding-text p { margin: 0; }
+    .funding-media { justify-self: end; }
+    .funding-media img { max-height: 360px; width: auto; border-radius: .5rem; border: 2px solid var(--brand); box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+    .funding-actions { display: grid; gap: .5rem; justify-items: start; }
+    .btn { display: inline-block; background: var(--brand); color: #fff; padding: .6rem .9rem; border-radius: .6rem; text-decoration: none; font-weight: 600; transition: transform .06s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .pdf-embed { margin-top: .5rem; border: 1px solid #e5e5e5; border-radius: .5rem; overflow: hidden; }
+      /* Reveal animations (respect reduced-motion) */
     .will-reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
     .reveal { opacity: 1 !important; transform: none !important; }
     @media (prefers-reduced-motion: reduce) {
       .will-reveal { opacity: 1; transform: none; transition: none; }
     }
-
-    @media (max-width: 768px) {
-      .hero-inner { grid-template-columns: 1fr; }
+      /* εικόνα ενότητας */
+    .section-image { margin: 0 0 1rem; }
+    .section-image img { width: 100%; height: auto; display: block; border-radius: .75rem; box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+      @media (max-width: 768px) {
       .funding-media img { max-height: 380px; width: 100%; height: auto; }
     }
+      /* Hero media image */
+    .hero-media img { width: 100%; height: auto; display: block; border-radius: .75rem; box-shadow: 0 10px 28px rgba(0,0,0,.12); }
   </style>
 </head>
 <body>
@@ -125,9 +191,10 @@
         <ul>
           <li><a href="#services" aria-current="page">Υπηρεσίες</a></li>
           <li><a href="#about">Σχετικά</a></li>
+          <li><a href="#contact">Επικοινωνία</a></li>
+          <li><a href="#accessibility">Προσβασιμότητα</a></li>
           <li><a href="#proposal">Πρόταση</a></li>
           <li><a href="#downloads">Downloads</a></li>
-          <li><a href="#accessibility">Προσβασιμότητα</a></li>
           <li><a href="#privacy">Απόρρητο</a></li>
         </ul>
       </nav>
@@ -135,18 +202,6 @@
   </header>
 
   <main id="main" role="main">
-
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="will-reveal">
-          <h1>Μαθήματα Δανέζικων &amp; Υποστήριξη Ενσωμάτωσης</h1>
-          <p><span class="flag-inline" aria-hidden="true" title="Denmark">🇩🇰</span> Εκμάθηση γλώσσας, κουλτούρας και υποστήριξη ζωής στη Δανία <span class="flag-inline" aria-hidden="true" title="Denmark">🇩🇰</span></p>
-          <a class="cta" href="#contact">Ζητήστε Προσφορά</a>
-        </div>
-        <!-- αφαιρέθηκε το placeholder εικονιδίου προσβασιμότητας -->
-      </div>
-    </section>
-
     <!-- Εμφανές banner Χρηματοδότησης ΔΥΠΑ -->
     <section id="funding" aria-labelledby="funding-h2" class="funding-banner" role="region">
       <div class="container">
@@ -157,12 +212,30 @@
             <p class="hint">Η ενημέρωση είναι μόνιμα ορατή σύμφωνα με τις απαιτήσεις προβολής χρηματοδότησης.</p>
           </div>
           <figure class="funding-media">
+            <!-- Προσπαθούμε να δείξουμε εικόνα αν υπάρχει, αλλιώς θα φαίνεται μόνο το PDF μέσω του κουμπιού -->
             <img src="poster.jpg" alt="Αφίσα προγράμματος χρηματοδότησης ΔΥΠΑ (περίληψη περιεχομένου αφίσας)" onerror="this.style.display='none'" />
           </figure>
           <div class="funding-actions">
             <p class="hint">Με τη συγχρηματοδότηση της Ευρωπαϊκής Ένωσης – ΕΚΤ+</p>
           </div>
+            </details>
+          </div>
+            </details>
+          </div>
         </div>
+      </div>
+    </section>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="will-reveal">
+          <h1>Μαθήματα Δανέζικων &amp; Υποστήριξη Ενσωμάτωσης</h1>
+          <p><span class="flag-inline" aria-hidden="true" title="Denmark">🇩🇰</span> Εκμάθηση γλώσσας, κουλτούρας και υποστήριξη ζωής στη Δανία <span class="flag-inline" aria-hidden="true" title="Denmark">🇩🇰</span></p>
+          <p>Παρέχουμε <strong>υψηλής ποιότητας</strong> υπηρεσίες με σεβασμό σε όλους τους χρήστες. Ο παρών ιστότοπος ακολουθεί τις οδηγίες <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.1 σε επίπεδο AA.</p>
+          <a class="cta" href="#contact">Ζητήστε Προσφορά</a>
+        </div>
+        <figure class="hero-media will-reveal">
+          <img src="laptop-hero.jpg" alt="Φωτογραφία φορητού υπολογιστή σε καθαρό γραφείο, που παραπέμπει σε online μαθήματα" />
+        </figure>
       </div>
     </section>
 
@@ -210,6 +283,16 @@
             <li>Μαθήματα ιστορίας και πολιτισμού της Δανίας για τεστ ιθαγένειας ή καλύτερη ενσωμάτωση.</li>
           </ul>
         </article>
+
+        <article class="card will-reveal" aria-labelledby="advantages-h3">
+          <h3 id="advantages-h3">Πλεονεκτήματα</h3>
+          <ul>
+            <li><strong>Σπάνιο αντικείμενο στα ελληνικά:</strong> Ελάχιστα (μονοψήφιος αριθμός) κέντρα εκμάθησης για ελληνόφωνους.</li>
+            <li><strong>Δίγλωσση δασκάλα (Ελληνικά &amp; Δανέζικα):</strong> Ορθή προφορά — ένα από τα δυσκολότερα σημεία της γλώσσας.</li>
+            <li><strong>Ευελιξία προγραμματισμού:</strong> Μαθήματα μέσω Skype/Teams σε ώρες που εξυπηρετούν τους μαθητές.</li>
+            
+          </ul>
+        </article>
       </div>
     </section>
 
@@ -251,18 +334,10 @@
     <section id="contact" aria-labelledby="contact-h2">
       <div class="container">
         <h2 id="contact-h2">Επικοινωνία</h2>
-        <p id="contact-help" class="hint">Συμπληρώστε τη φόρμα για να επικοινωνήσουμε μαζί σας.</p>
+        <p class="hint">* Όλα τα πεδία είναι υποχρεωτικά</p>
         <div class="gform-embed">
           <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeFpjWeh9v0oiTuHBYF0LKntohZa4N12DnsLSNj6e4OAwXPFA/viewform?embedded=true" width="100%" height="824" frameborder="0" marginheight="0" marginwidth="0">Φόρτωση…</iframe>
         </div>
-      </div>
-    </section>
-
-    <section id="downloads" aria-labelledby="downloads-h2">
-      <div class="container">
-        <h2 id="downloads-h2">Downloads</h2>
-        <p class="hint">Επίσημα αρχεία και υλικό ενημέρωσης.</p>
-        <a class="btn" href="poster-nee-30-59-final.pdf" target="_blank" rel="noopener" title="PDF αρχείο, 1 σελίδα, ~2 MB">Αφίσα Χρηματοδότησης (PDF)</a>
       </div>
     </section>
 
@@ -288,7 +363,13 @@
         <p>Σεβόμαστε την ιδιωτικότητά σας. Συλλέγουμε μόνο τα απολύτως απαραίτητα δεδομένα για την επικοινωνία μαζί σας και δεν τα κοινοποιούμε σε τρίτους. Για περισσότερα στοιχεία σχετικά με τα δικαιώματά σας (GDPR) επικοινωνήστε μαζί μας.</p>
       </div>
     </section>
-
+      <section id="downloads" aria-labelledby="downloads-h2">
+      <div class="container">
+        <h2 id="downloads-h2">Downloads</h2>
+        <p class="hint">Επίσημα αρχεία και υλικό ενημέρωσης.</p>
+        <a class="btn" href="poster-nee-30-59-final.pdf" target="_blank" rel="noopener" title="PDF αρχείο, 1 σελίδα, ~2 MB">Αφίσα Χρηματοδότησης (PDF)</a>
+      </div>
+    </section>
   </main>
 
   <footer role="contentinfo">
@@ -302,6 +383,30 @@
     document.getElementById('year').textContent = new Date().getFullYear();
     const d = new Date(document.lastModified);
     document.getElementById('last-updated').textContent = d.toLocaleDateString('el-GR', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    // Υποβολή φόρμας: χρησιμοποιεί Formspree (αντικαταστήστε το YOUR_ID στο action)
+    const form = document.querySelector('form');
+    const status = document.getElementById('form-status');
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (form.action.includes('YOUR_ID')) {
+        status.textContent = 'Παρακαλώ ενημερώστε το action της φόρμας με το προσωπικό σας Formspree ID.';
+        return;
+      }
+      status.textContent = 'Αποστολή…';
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' }});
+        if (res.ok) {
+          status.textContent = '✅ Το μήνυμά σας στάλθηκε με επιτυχία.';
+          form.reset();
+        } else {
+          status.textContent = '⚠️ Κάτι πήγε στραβά. Δοκιμάστε ξανά.';
+        }
+      } catch (err) {
+        status.textContent = '⚠️ Σφάλμα δικτύου. Προσπαθήστε αργότερα.';
+      }
+    });
 
     // Reveal on scroll
     (function(){
@@ -323,3 +428,5 @@
   </script>
 </body>
 </html>
+προσβάσιμο_πρότυπο_ιστοσελίδας_wcag_2 (1).html
+Εμφάνιση προσβάσιμο_πρότυπο_ιστοσελίδας_wcag_2 (1).html.
